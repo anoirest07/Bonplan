@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="633.0" prefWidth="760.0" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+      <Label layoutX="66.0" layoutY="166.0" text="Nom" underline="true" />
+      <TextField fx:id="nom" layoutX="256.0" layoutY="162.0" />
+      <MenuBar layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="760.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Accueil" />
+            <Menu mnemonicParsing="false" text="Etablissement">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Consulter établissement" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter établissement" />
+                  <MenuItem mnemonicParsing="false" text="Modifier établissement" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer établissement" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Offre">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Consulter offre" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter offre" />
+                  <MenuItem mnemonicParsing="false" text="Modifier offre" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer offre" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Evénement">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Consulter événement" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter événement" />
+                  <MenuItem mnemonicParsing="false" text="Modifier événement" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer événement" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Publicité">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Consulter publicité" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter publicité" />
+                  <MenuItem mnemonicParsing="false" text="Modifier publicité" />
+                  <MenuItem mnemonicParsing="false" text="Supprimer publicité" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="40.0" fitWidth="42.0" layoutX="728.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@avatar.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="607.0" layoutY="569.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="104.0" text="Valider" />
+      <Label layoutX="66.0" layoutY="228.0" text="Critères d'évaluation" underline="true" />
+      <CheckBox layoutX="219.0" layoutY="228.0" mnemonicParsing="false" text="Rapport qualité prix" />
+      <CheckBox layoutX="219.0" layoutY="265.0" mnemonicParsing="false" text="Ambiance" />
+      <CheckBox layoutX="388.0" layoutY="228.0" mnemonicParsing="false" text="Hygiène et propreté" />
+      <CheckBox layoutX="387.0" layoutY="265.0" mnemonicParsing="false" text="Accueil et service" />
+      <Label layoutX="66.0" layoutY="330.0" text="Autre critère d'évaluation" underline="true" />
+      <TextField layoutX="256.0" layoutY="326.0" />
+      <Button layoutX="388.0" layoutY="371.0" mnemonicParsing="false" text="Ajouter un critère" />
+      <Label layoutX="110.0" layoutY="115.0" prefWidth="132.0" text="Proposez une catégorie" />
+   </children>
+    
+</AnchorPane>
