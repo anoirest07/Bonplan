@@ -110,8 +110,35 @@ Connection con ;
 
     @Override
     public Categorie afficherCategorie(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                           Categorie c = new Categorie();
+
+        try 
+        {
+                   Statement stm = Connexion.getInstance().getCon().createStatement();
+            ResultSet rest= 
+                    stm.executeQuery("select * from `categorie` where id_categorie='"+id+"'");
+        
+        while (rest.next()) 
+        {
+            
+            c.setId_categorie(rest.getInt("id_categorie"));
+            c.setNom_categorie(rest.getString("nom_categorie"));
+            
+        } 
+
+    }   
+        catch (SQLException e)
+                {
+                    System.err.println("SQLException: "+e.getMessage());
+                    System.err.println("SQLSTATE: "+e.getSQLState());
+                    System.err.println("VnedorError: "+e.getErrorCode());
+                }
+        return c;
+
+        
     }
-    }
+    }//To change body of generated methods, choose Tools | Templates.
+    
+    
     
 

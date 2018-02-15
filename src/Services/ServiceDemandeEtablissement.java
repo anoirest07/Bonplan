@@ -43,7 +43,7 @@ public class ServiceDemandeEtablissement implements IServices.IServiceDemandeEta
             stm.setString(10,de.getBudget_demande().toString());   
             stm.setString(11,de.getSite_web_etab_demande());
             stm.setInt(12, de.getCategorie().getId_categorie());
-            stm.setInt(13,de.getUtilisateur().getId_user());
+            stm.setInt(13,1);
             int res = stm.executeUpdate();
             if(res > 0){
                 System.out.println("Add Done");
@@ -131,7 +131,7 @@ public class ServiceDemandeEtablissement implements IServices.IServiceDemandeEta
             de.setPosition_etab_demande(result.getString("position_demande"));
             de.setBudget_demande(DemandeEtablissement.Budget.valueOf(result.getString("budget_demande")));
             de.setSite_web_etab_demande(result.getString("site_web_demande"));
-           // de.getCategorie().setId_categorie(result.getInt("id_categorie"));
+            de.getCategorie().setId_categorie(result.getInt("id_categorie"));
            // de.getUtilisateur().setId_user(result.getInt("id"));
             
             

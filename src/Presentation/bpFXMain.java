@@ -26,7 +26,7 @@ public class bpFXMain extends Application {
     public void start(Stage primaryStage) throws IOException {
                  Parent root =FXMLLoader.load(getClass().getResource("ValidationDemande.fxml"));
 
-        Scene scene = new Scene(root, 300, 250);
+        Scene scene = new Scene(root);
         
         primaryStage.setTitle("Hello World!");
         primaryStage.setScene(scene);

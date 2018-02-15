@@ -26,7 +26,7 @@ public class Etablissement {
     private Budget budget ;
     private String site_web;
     private Categorie categorie;
-    private Utilisateur utilisateur;
+  //  private Utilisateur utilisateur;
 //    private List<Offre> offres;
 //    private List<Evenement> evenements;
 //    private List<Publicite> publicites;
@@ -36,7 +36,7 @@ public class Etablissement {
     public Etablissement() {
     }
 
-    public Etablissement( String nom_etablissement, String adresse_etablissement, int telephone_etablissement, String horaire_travail, String description_etablissement, String photo_etablissement, String photo_patente, int code_postal, String position, Budget budget, String site_web, Categorie categorie, Utilisateur utilisateur) {
+    public Etablissement( String nom_etablissement, String adresse_etablissement, int telephone_etablissement, String horaire_travail, String description_etablissement, String photo_etablissement, String photo_patente, int code_postal, String position, Budget budget, String site_web, Categorie categorie) {
         
         this.nom_etablissement = nom_etablissement;
         this.adresse_etablissement = adresse_etablissement;
@@ -50,7 +50,7 @@ public class Etablissement {
         this.budget = budget;
         this.site_web = site_web;
         this.categorie = categorie;
-        this.utilisateur = utilisateur;
+    //    this.utilisateur = utilisateur;
 //        this.offres = offres;
 //        this.evenements = evenements;
 //        this.publicites = publicites;
@@ -100,8 +100,8 @@ public class Etablissement {
         return position;
     }
 
-    public Budget getBudget() {
-        return budget;
+    public String getBudget() {
+        return budget.name();
     }
 
     public String getSite_web() {
@@ -112,9 +112,9 @@ public class Etablissement {
         return categorie;
     }
 
-    public Utilisateur getUtilisateur() {
+  /*  public Utilisateur getUtilisateur() {
         return utilisateur;
-    }
+    }*/
 
     public void setId_etablissement(int id_etablissement) {
         this.id_etablissement = id_etablissement;
@@ -168,9 +168,9 @@ public class Etablissement {
         this.categorie = categorie;
     }
 
-    public void setUtilisateur(Utilisateur utilisateur) {
+  /*  public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
-    }
+    }*/
 
 //    public List<Offre> getOffres() {
 //        return offres;
@@ -196,9 +196,14 @@ public class Etablissement {
 //        this.publicites = publicites;
 //    }
 
+//    @Override
+//    public String toString() {
+//        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position=" + position + ", budget=" + budget + ", site_web=" + site_web + ", categorie=" + categorie + "}";
+//    }
+
     @Override
     public String toString() {
-        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position=" + position + ", budget=" + budget + ", site_web=" + site_web + ", categorie=" + categorie + ", utilisateur=" + utilisateur+"}";
+        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position=" + position + ", budget=" + budget + ", site_web=" + site_web + ", categorie=" + categorie + '}';
     }
 
    
@@ -209,6 +214,6 @@ public class Etablissement {
 
     
     
-    
-    
 }
+    
+

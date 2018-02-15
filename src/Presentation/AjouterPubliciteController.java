@@ -5,28 +5,29 @@
  */
 package Presentation;
 
-import Entite.Etablissement;
 import Entite.Publicite;
 import Services.ServiceEtablissement;
-import Services.ServicePublicite;
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.collections.ObservableList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -161,15 +162,43 @@ public void setDialogStage(Stage dialogStage) {
     
 }
 
+     public String upload(File file) throws FileNotFoundException, IOException {
+        BufferedOutputStream stream = null;
+        String globalPath="C:\\wamp64\\www\\image";
+        String localPath="localhost:80/";
+        String fileName = file.getName();
+        fileName=fileName.replace(" ", "_");
+        try {
+            Path p = file.toPath();
+            
+            byte[] bytes = Files.readAllBytes(p);
+    
+            File dir = new File(globalPath);
+            if (!dir.exists())
+                dir.mkdirs();
+            // Create the file on server
+            File serverFile = new File(dir.getAbsolutePath()+File.separator + fileName);
+            stream = new BufferedOutputStream(new FileOutputStream(serverFile));
+            stream.write(bytes);
+            stream.close();
+            return localPath+"/"+fileName;
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AjouterPubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+            return "error1";
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterPubliciteController.class.getName()).log(Level.SEVERE, null, ex);
+            return "error2";
+        }
+    }
+    
     @FXML
-    private void uploadPic(ActionEvent event) throws MalformedURLException {
-         FileChooser fc = new FileChooser();
+    private void uploadPic(ActionEvent event) throws MalformedURLException, IOException {
+    
+        FileChooser fc = new FileChooser();
         File selectedFile = fc.showOpenDialog(null);
         if (selectedFile != null) {
-            //    getImageUrl = selectedFile.getAbsolutePath();
-            // System.out.println(getImageUrl);
-            // Image value = new Image(getImageUrl);
-            //  img.setImage(value);
+           
+            upload(selectedFile);
             String imageFile = selectedFile.toURI().toURL().toString();
             System.out.println(imageFile);
 

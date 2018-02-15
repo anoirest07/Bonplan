@@ -69,11 +69,15 @@ try {
            
             st.setString(1,p.getDescription_publicite());
             st.setString(2,p.getPhoto_publicite());
-            st.setInt(3,2);
+             ServiceEtablissement sc = new ServiceEtablissement();
+             st.setInt(3,2);
+         //   st.setInt(3,sc.ChercherEtablissement(p.getEtablissement().getId_etablissement()).getId_etablissement() );
 
             st.executeUpdate();
+            ResultSet result = st.getGeneratedKeys();
+            result.next();
            System.out.println("publicite est ajouter");
-             ResultSet result = st.getGeneratedKeys();
+             
              
             int id = 0;
 //            while (result.next()) {

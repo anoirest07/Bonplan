@@ -51,7 +51,7 @@ public class ListeExperiencesController implements Initializable {
        
        photo.setCellValueFactory(new PropertyValueFactory<>("preuve"));
        NomEtab.setCellValueFactory(new PropertyValueFactory<>("id_etablissement"));
-       Comm.setCellValueFactory(new PropertyValueFactory<>("description"));
+       Comm.setCellValueFactory(new PropertyValueFactory<>("description_experience"));
        tableview.setItems(ls);
         // TODO
     }    

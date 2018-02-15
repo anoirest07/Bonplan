@@ -46,27 +46,27 @@ public class Bonplan {
   
         // --------------Anoir-------------- //
 
- ServiceCategorie SC= new ServiceCategorie();
-        Categorie c = new Categorie();
-       SC.ajouterCategorie(c);
-        c.setNom_categorie("lounge");
-        c.setId_categorie(1);
-//      SC.modifierCategorie(c);
-//        c.setId_categorie(2);
-//        SC.supprimerCategorie(c);
-        for(Categorie cat:SC.listCategorie()){
-            System.out.println(cat.toString());
-        }
+// ServiceCategorie SC= new ServiceCategorie();
+       Categorie c = new Categorie();
+//       SC.ajouterCategorie(c);
+//        c.setNom_categorie("lounge");
+//        c.setId_categorie(1);
+////      SC.modifierCategorie(c);
+////        c.setId_categorie(2);
+////        SC.supprimerCategorie(c);
+//        for(Categorie cat:SC.listCategorie()){
+//            System.out.println(cat.toString());
+//        }
         
-//        ServiceEtablissement SE = new ServiceEtablissement();
-//        
-//        Etablissement et = new Etablissement("cafe bristol", "menchiya", 92332029 , "24h", "yezzi frere", "google it","photo patente", 4011, "google it", Etablissement.Budget.Moyen,"www.anoir.com",c,u);
-//        SE.ajouterEtablissement(et);
+      ServiceEtablissement SE = new ServiceEtablissement();
+        
+        Etablissement et = new Etablissement("cafe bristol", "menchiya", 92332029 , "24h", "yezzi frere", "google it","photo patente", 4011, "google it", Etablissement.Budget.Moyen,"www.anoir.com",c);
+       SE.ajouterEtablissement(et);
 //        et.getCategorie().setId_categorie(5);
 //        et.setId_etablissement(7);
 //        SE.modifierEtablissement(et);
 //       et.setId_etablissement(7);
-//       SE.supprimerEtablissement(et);
+      // SE.supprimerEtablissement(et);
 //       System.out.println(SE.chercherEtablissement("cafe bristol"));
 //       for(Etablissement etab:SE.listEtablissement()){
 //            System.out.println(etab.toString());
@@ -190,15 +190,15 @@ public class Bonplan {
 
 
 // --------------Malek-------------- //
-        ServiceProduit s1 =new ServiceProduit();
-        Produit p=new Produit();
-       
-        p.setNom_produit("mojito");
-        p.setPhoto_produit("jkyufytcytfyt");
-        p.setPrix_produit(11f);
-        
-       // System.out.println(s1.chercherProduit("grey couse"));
-           s1.ajouterProduit(p);
+//        ServiceProduit s1 =new ServiceProduit();
+//        Produit p=new Produit();
+//       
+//        p.setNom_produit("mojito");
+//        p.setPhoto_produit("jkyufytcytfyt");
+//        p.setPrix_produit(11f);
+//        
+//       // System.out.println(s1.chercherProduit("grey couse"));
+//           s1.ajouterProduit(p);
         
 // --------------Malek-------------- //
 

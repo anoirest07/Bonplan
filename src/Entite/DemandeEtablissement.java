@@ -47,6 +47,7 @@ public class DemandeEtablissement {
     
     
    public DemandeEtablissement(){
+       categorie = new Categorie();
    }
 
     public int getId_demande_etab() {
@@ -93,8 +94,8 @@ public class DemandeEtablissement {
         return position_etab_demande;
     }
 
-    public Budget getBudget_demande() {
-        return budget_demande;
+    public String getBudget_demande() {
+        return budget_demande.name();
     }
 
     public String getSite_web_etab_demande() {
