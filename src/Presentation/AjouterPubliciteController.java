@@ -105,7 +105,7 @@ public void setDialogStage(Stage dialogStage) {
  private void ajouter() throws MalformedURLException {
         if (isInputValid()) {
             s.setDescription_publicite(desc.getText());
-            s.setPhoto_publicite(pic.getImage().toString());
+            //s.setPhoto_publicite(pic.getImage().toString());
 
             //    getImageUrl = selectedFile.getAbsolutePath();
             // System.out.println(getImageUrl);
@@ -200,10 +200,11 @@ public void setDialogStage(Stage dialogStage) {
            
             upload(selectedFile);
             String imageFile = selectedFile.toURI().toURL().toString();
-            System.out.println(imageFile);
+            System.err.println(selectedFile.getName());
 
             Image image = new Image(imageFile);
             pic.setImage(image);
+            s.setPhoto_publicite(selectedFile.getName());
             //////a changer static
             /*IuserService is = new UserService();
             User u;
