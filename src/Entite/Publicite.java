@@ -65,8 +65,8 @@ public class Publicite
 
     @Override
     public String toString() {
-        return "Publicite{" + "id_publicite=" + id_publicite + ", description_publicite=" + description_publicite + ", photo_publicite=" + photo_publicite + ", etablissement=" + etablissement + '}';
-    }
+        return description_publicite ;
     
     
+}
 }

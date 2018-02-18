@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.ReadOnlyObjectWrapper;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -23,12 +26,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageViewBuilder;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -40,16 +52,11 @@ public class PubliciteController {
     @FXML
     private Button bt_menu;
     @FXML
-    private VBox mainContainer;
-    @FXML
-    private TableView<Publicite> table_publicite;
-    @FXML
-    private TableColumn<Publicite, String> photo;
-    @FXML
-    private TableColumn<Publicite, String> details;
-    @FXML
-    private Label wcount;
-    @FXML
+   // private VBox mainContainer;
+   // private TableView<Publicite> table_publicite;
+   // private TableColumn<Publicite, Image> photo;
+   // private TableColumn<Publicite, String> details;
+   // @FXML
     private Button add;
     @FXML
     private Button edit;
@@ -59,22 +66,35 @@ public class PubliciteController {
     private ObservableList<Publicite> data ;
     ServicePublicite service = new ServicePublicite();
     private TestPublicite mainApp;
+    @FXML
+    private ListView<Publicite> description;
+    @FXML
+    private ImageView photo2;
+    @FXML
+    private VBox mainContainer;
     
     /**
      * Initializes the controller class.
      */
    
+   
     public void initialize() {
-        // TODO
         data = FXCollections.observableArrayList();
         List<Publicite> ls = service.afficherpublicite();
         ls.stream().forEach((j)->{
             data.add(j);
         });
         
-        table_publicite.setItems(data);
-        photo.setCellValueFactory(new PropertyValueFactory<>("photo_publicite"));
-        details.setCellValueFactory(new PropertyValueFactory<>("description_publicite"));
+        description.setItems(data);
+        description.getSelectionModel().selectFirst();
+        Publicite e=description.getSelectionModel().getSelectedItem();
+        javafx.scene.image.Image image = new javafx.scene.image.Image("http://localhost/image/"+e.getPhoto_publicite());
+        photo2.setImage(image);
+       
+          
+
+
+
 
     }    
  public void setMainApp(TestPublicite mainApp) {
@@ -99,6 +119,7 @@ Publicite tempService = new Publicite();
             if (okClicked) {
                 service.ajouterpublicite(tempService);
                 initialize();
+               
         }
         }
         else{
@@ -110,7 +131,7 @@ Publicite tempService = new Publicite();
 
     @FXML
     private void Edit(ActionEvent event) {
-        Publicite selectedPerson = table_publicite.getSelectionModel().getSelectedItem();
+        Publicite selectedPerson = description.getSelectionModel().getSelectedItem();
         if ( selectedPerson != null) {
             boolean okClicked = mainApp.showServiceEditDialog(selectedPerson);
             if (okClicked) {
@@ -134,11 +155,11 @@ Publicite tempService = new Publicite();
 
     @FXML
     private void Delete(ActionEvent event) {
-         int selectedIndex = table_publicite.getSelectionModel().getSelectedIndex();
-         Publicite selectedPerson = table_publicite.getSelectionModel().getSelectedItem();
+         int selectedIndex = description.getSelectionModel().getSelectedIndex();
+         Publicite selectedPerson = description.getSelectionModel().getSelectedItem();
          Alert a = new Alert(Alert.AlertType.CONFIRMATION);
          if (selectedIndex >= 0) {
-            table_publicite.getItems().remove(selectedIndex);
+            description.getItems().remove(selectedIndex);
             service.supprimerpublicite(selectedPerson);
         } else {
             // Nothing selected.
@@ -150,5 +171,20 @@ Publicite tempService = new Publicite();
             alert.showAndWait();
         }
     }
-    
+
+    @FXML
+    private void afficher(MouseEvent event) {
+         Publicite e=description.getSelectionModel().getSelectedItem();
+       // photo2.setViewport(e.getPhoto_publicite());
+       //label1.setText(e.getPhoto_publicite());
+       // System.out.println(e.getPhoto_publicite());
+      // Image image = new Image(e.getPhoto_publicite());
+        System.out.println("http://localhost/image/"+e.getPhoto_publicite());
+      //  ImageView photo2 = new ImageView(image););
+       javafx.scene.image.Image image = new javafx.scene.image.Image("http://localhost/image/"+e.getPhoto_publicite());
+      //  ImageView photo2 = new ImageView(image);
+       
+    photo2.setImage(image);
+    }
+
 }

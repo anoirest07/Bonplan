@@ -34,7 +34,7 @@ public class TestPublicite extends Application {
         
      this.primaryStage = Stage ;
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(TestPublicite.class.getResource("/Presentation/Publicite.fxml"));
+        loader.setLocation(getClass().getResource("../Presentation/Publicite.fxml"));
         AnchorPane serviceindex = (AnchorPane) loader.load();
         PubliciteController controller = loader.getController();
         controller.setMainApp(this);

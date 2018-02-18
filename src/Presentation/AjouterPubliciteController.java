@@ -65,13 +65,13 @@ public class AjouterPubliciteController implements Initializable {
     public void initialize(URL url, ResourceBundle rb)
             
     {
-        ServiceEtablissement sp = new ServiceEtablissement();
-         List<String> l=new ArrayList<>();
-        l=sp.nouri();
-        for (int i=0;i<l.size();i++)
-        {//System.out.println(l.get(i).toString());
-chb.getItems().add(l.get(i).toString());
-                }
+//        ServiceEtablissement sp = new ServiceEtablissement();
+//         List<String> l=new ArrayList<>();
+//        l=sp.nouri();
+//        for (int i=0;i<l.size();i++)
+//        {//System.out.println(l.get(i).toString());
+//chb.getItems().add(l.get(i).toString());
+//                }
         if(s != null){
             desc.setText(s.getDescription_publicite());
             
@@ -164,7 +164,7 @@ public void setDialogStage(Stage dialogStage) {
 
      public String upload(File file) throws FileNotFoundException, IOException {
         BufferedOutputStream stream = null;
-        String globalPath="C:\\wamp64\\www\\image";
+        String globalPath="C:\\wamp\\www\\image";
         String localPath="localhost:80/";
         String fileName = file.getName();
         fileName=fileName.replace(" ", "_");
@@ -218,4 +218,5 @@ public void setDialogStage(Stage dialogStage) {
             System.out.println("file doesn't exist");
         }
     }
+    
 }

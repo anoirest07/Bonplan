@@ -28,7 +28,7 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.primaryStage = stage ;
-        root = FXMLLoader.load(getClass().getResource("ListeExperiences.fxml")); 
+        root = FXMLLoader.load(getClass().getResource("FXML.fxml")); 
         Scene scene = new Scene(root);      
         stage.setTitle("BonPlan");
         stage.setScene(scene);
