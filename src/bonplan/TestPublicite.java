@@ -8,6 +8,8 @@ package bonplan;
 import Entite.Publicite;
 import Presentation.AjouterPubliciteController;
 import Presentation.PubliciteController;
+import Services.Facebook;
+import com.restfb.types.Message.Share;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -32,43 +34,20 @@ public class TestPublicite extends Application {
     public void start(Stage Stage) throws IOException {
        
         
-     this.primaryStage = Stage ;
+    /* this.primaryStage = Stage ;
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../Presentation/Publicite.fxml"));
         AnchorPane serviceindex = (AnchorPane) loader.load();
         PubliciteController controller = loader.getController();
-        controller.setMainApp(this);
         Scene scene = new Scene(serviceindex);
         Stage.setScene(scene);
-        Stage.show();
+        Stage.show();*/
+        Facebook s = new Facebook();
+    s.partager();
         
         
     }
-    public boolean showServiceEditDialog(Publicite s) {
-        try {
-            FXMLLoader loader2 = new FXMLLoader();
-            loader2.setLocation(TestPublicite.class.getResource("../Presentation/AjouterPublicite.fxml"));
-            // Create the dialog Stage.
-            Stage dialogStage = new Stage();
-            AnchorPane page = (AnchorPane) loader2.load();
-            dialogStage.setTitle("Edit Publicite");
-            dialogStage.initModality(Modality.WINDOW_MODAL);
-            dialogStage.initOwner(primaryStage);
-            Scene scene = new Scene(page);
-            dialogStage.setScene(scene);
-            // Set the person into the controller.
-            AjouterPubliciteController controller = loader2.getController();            
-            controller.setDialogStage(dialogStage);
-            controller.setPublicite(s);            
-            // Show the dialog and wait until the user closes it
-            dialogStage.showAndWait();
-           // controller.isOkClicked();
-            return controller.isOkClicked();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-            return false;
-        }
-    }
+
     
 
     /**
@@ -77,7 +56,5 @@ public class TestPublicite extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    public Stage getPrimaryStage() {
-        return primaryStage;
-    }
+
 }

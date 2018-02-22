@@ -40,7 +40,7 @@ Connection con ;
     {
                 List<Publicite> pubs =new ArrayList<>();
         try {
-            Statement stm = Connexion.getInstance().getCon().createStatement();
+            Statement stm = con.createStatement();
             ResultSet rest= 
                     stm.executeQuery("select * from `publicite` ");
             while(rest.next()){
@@ -58,19 +58,44 @@ Connection con ;
         }
          return pubs;
     }    }
+    
+    public List<Publicite> afficherPhoto() {
+
+    {
+                List<Publicite> pic =new ArrayList<>();
+        try {
+            Statement stm = con.createStatement();
+            ResultSet rest= 
+                    stm.executeQuery("select photo_publicite from `publicite` ");
+            while(rest.next()){
+                Publicite pub = new Publicite();
+                
+                pub.setPhoto_publicite(rest.getString("photo_publicite"));
+                
+                pic.add(pub);
+                
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicePublicite.class.getName()).log(Level.SEVERE, null, ex);
+        }
+             return pic;
+    }    }
 
     @Override
     public void ajouterpublicite(Publicite p) {
 try {
-    String query = "insert into `bonplan`.`publicite` (`description_publicite`,`photo_publicite`,`id_etablissement`) values (?,?,?)";
+    String query = "insert into `bonplan`.`publicite` (`description_publicite`,`photo_publicite`,`id_etablissement`,enabled) values (?,?,?,?)";
     
     PreparedStatement st =
-            Connexion.getInstance().getCon().prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
+            con.prepareStatement(query,PreparedStatement.RETURN_GENERATED_KEYS);
            
             st.setString(1,p.getDescription_publicite());
             st.setString(2,p.getPhoto_publicite());
+            
              ServiceEtablissement sc = new ServiceEtablissement();
              st.setInt(3,2);
+             st.setInt(4, 0);
          //   st.setInt(3,sc.ChercherEtablissement(p.getEtablissement().getId_etablissement()).getId_etablissement() );
 
             st.executeUpdate();
@@ -111,13 +136,32 @@ try {
                     
                 }
     }
+     public void updatepublicite(Publicite p) {
+ try
+        {
+        String update = "UPDATE publicite SET enabled = ? WHERE id_publicite = ?";
+        PreparedStatement statement2 = con.prepareStatement(update);
+        statement2.setInt(1, 1);
+        statement2.setInt(2,p.getId_publicite());
+       
+        
+        statement2.executeUpdate();
+        
+            System.out.println("update Done");
+        }
+        catch (SQLException e)
+                {
+                    System.out.println(e.getMessage());
+                    
+                }
+    }
 
     @Override
     public void supprimerpublicite(Publicite p) {
 
          try {
             String query = "delete from `publicite` where id_publicite =?";
-            PreparedStatement st = Connexion.getInstance().getCon().prepareStatement(query);
+            PreparedStatement st = con.prepareStatement(query);
             st.setInt(1, p.getId_publicite());
             st.executeUpdate();
             System.out.println("supp pub ok");
@@ -126,6 +170,37 @@ try {
             Logger.getLogger(ServicePublicite.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }
+     public List<Publicite> listDemandesPublicites() {
+        List<Publicite> lc = new ArrayList<>();
+        try {
+            String select = "SELECT  * FROM publicite where enabled=0 ;";
+
+            Statement statement1 = con.createStatement();
+
+            ResultSet result = statement1.executeQuery(select);
+
+            while (result.next()) {
+                Publicite c = new Publicite();
+
+                c.setId_publicite(result.getInt("id_publicite"));
+                c.setDescription_publicite(result.getString("description_publicite"));
+                c.setPhoto_publicite(result.getString("photo_publicite"));
+                c.setEnabled(result.getInt("enabled"));
+
+
+                lc.add(c);
+
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException: " + e.getMessage());
+            System.err.println("SQLSTATE: " + e.getSQLState());
+            System.err.println("VnedorError: " + e.getErrorCode());
+        }
+        return lc;
+    } //To change body of generated methods, choose Tools | Templates.
+
+ 
+
 
     
     

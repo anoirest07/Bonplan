@@ -139,7 +139,7 @@ public void setDialogStage(Stage dialogStage) {
         if (desc.getText() == null || desc.getText().length() == 0) {
             errorMessage += "No valid  description!\n"; 
         }
-        if (pic.getImage()== null || pic.getImage().equals(pic)) {
+        if (pic.getImage()== null) {
             errorMessage += "No valid photo, !\n"; 
         }
 
@@ -218,5 +218,7 @@ public void setDialogStage(Stage dialogStage) {
             System.out.println("file doesn't exist");
         }
     }
+    
+    
     
 }

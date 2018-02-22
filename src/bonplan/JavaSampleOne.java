@@ -60,16 +60,16 @@ try {
     // Handle errors
 }
 
-		System.out.println(ClassLoader.getSystemResource("log4j2.yml")); //Check if file is available in CP
-ClassLoader cl = Thread.currentThread().getContextClassLoader(); //Code as in log4j2 API. Version: 2.8.1
- String [] classes = {"com.fasterxml.jackson.databind.ObjectMapper",
- "com.fasterxml.jackson.databind.JsonNode",
- "com.fasterxml.jackson.core.JsonParser",
- "com.fasterxml.jackson.dataformat.yaml.YAMLFactory"};
-
- for(String className : classes) {
-     cl.loadClass(className);
- }	
+//		System.out.println(ClassLoader.getSystemResource("log4j2.yml")); //Check if file is available in CP
+//ClassLoader cl = Thread.currentThread().getContextClassLoader(); //Code as in log4j2 API. Version: 2.8.1
+// String [] classes = {"com.fasterxml.jackson.databind.ObjectMapper",
+// "com.fasterxml.jackson.databind.JsonNode",
+// "com.fasterxml.jackson.core.JsonParser",
+// "com.fasterxml.jackson.dataformat.yaml.YAMLFactory"};
+//
+// for(String className : classes) {
+//     cl.loadClass(className);
+// }	
 
 	}
     

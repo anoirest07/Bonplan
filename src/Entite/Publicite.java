@@ -16,18 +16,21 @@ public class Publicite
     private int id_publicite;
     private String description_publicite;
     private String photo_publicite;
+    private int enabled;
     private Etablissement etablissement;
     
     public Publicite() 
     {
     }
 
-    public Publicite( String description_publicite, String photo_publicite, Etablissement etablissement) {
-        
+    public Publicite(String description_publicite, String photo_publicite, int enabled, Etablissement etablissement) {
         this.description_publicite = description_publicite;
         this.photo_publicite = photo_publicite;
+        this.enabled = enabled;
         this.etablissement = etablissement;
     }
+
+    
 
     
     
@@ -62,6 +65,15 @@ public class Publicite
     public void setEtablissement(Etablissement etablissement) {
         this.etablissement = etablissement;
     }
+
+    public int getEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
+    
 
     @Override
     public String toString() {

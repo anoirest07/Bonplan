@@ -38,7 +38,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.ImageViewBuilder;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -91,17 +93,9 @@ public class PubliciteController {
         javafx.scene.image.Image image = new javafx.scene.image.Image("http://localhost/image/"+e.getPhoto_publicite());
         photo2.setImage(image);
        
-          
-
-
-
 
     }    
- public void setMainApp(TestPublicite mainApp) {
-        this.mainApp = mainApp;
-        // Add observable list data to the table
-       // personTable.setItems(mainApp.getPersonData());
-    }
+    
     @FXML
     private void Add(ActionEvent event) throws IOException {
 //Parent homePage = FXMLLoader.load(getClass().getResource("AjouterPublicite.fxml"));
@@ -114,13 +108,12 @@ public class PubliciteController {
 //
 //        app_stage.show();
 Publicite tempService = new Publicite();
-        if(mainApp != null ){
-            boolean okClicked = mainApp.showServiceEditDialog(tempService);
+            boolean okClicked = showServiceEditDialog(tempService);
             if (okClicked) {
                 service.ajouterpublicite(tempService);
                 initialize();
                
-        }
+        
         }
         else{
             System.out.println("not done");
@@ -133,7 +126,7 @@ Publicite tempService = new Publicite();
     private void Edit(ActionEvent event) {
         Publicite selectedPerson = description.getSelectionModel().getSelectedItem();
         if ( selectedPerson != null) {
-            boolean okClicked = mainApp.showServiceEditDialog(selectedPerson);
+            boolean okClicked = showServiceEditDialog(selectedPerson);
             if (okClicked) {
                 service.modifierpublicite(selectedPerson);
                 initialize();
@@ -142,7 +135,7 @@ Publicite tempService = new Publicite();
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.initOwner(mainApp.getPrimaryStage());
+//            alert.initOwner(mainApp.getPrimaryStage());
             alert.setTitle("No Selection");
             alert.setHeaderText("No Publicite Selected");
             alert.setContentText("Please select a Publicite in the table.");
@@ -187,4 +180,31 @@ Publicite tempService = new Publicite();
     photo2.setImage(image);
     }
 
+    
+    
+        public boolean showServiceEditDialog(Publicite s) {
+        try {
+            FXMLLoader loader2 = new FXMLLoader();
+            loader2.setLocation(getClass().getResource("../Presentation/AjouterPublicite.fxml"));
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            AnchorPane page = (AnchorPane) loader2.load();
+            dialogStage.setTitle("Edit Publicite");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            //dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            // Set the person into the controller.
+            AjouterPubliciteController controller = loader2.getController();            
+            controller.setDialogStage(dialogStage);
+            controller.setPublicite(s);            
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+           // controller.isOkClicked();
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return false;
+        }
+    }
 }
