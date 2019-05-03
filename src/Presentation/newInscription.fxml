@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.BoxBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1300.0" style="-fx-background-color: #541d1d;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.NewInscriptionController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="1300.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../icons/abstrait-arriere-plan-geometrique-pour-la-conception_1110-818.jpg" />
+         </image>
+      </ImageView>
+      <Pane layoutX="96.0" layoutY="101.0" opacity="0.8" prefHeight="422.0" prefWidth="1105.0" style="-fx-background-color: #990033;">
+         <children>
+            <JFXTextField fx:id="Nom" focusColor="#93858a" labelFloat="true" layoutX="276.0" layoutY="41.0" prefHeight="39.0" prefWidth="234.0" promptText="Nom" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="pren" focusColor="#93858a" labelFloat="true" layoutX="276.0" layoutY="111.0" prefHeight="39.0" prefWidth="234.0" promptText="Prénom" style="-fx-background-color: ;" unFocusColor="#fffbfb">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="mail" focusColor="#93858a" labelFloat="true" layoutX="276.0" layoutY="181.0" prefHeight="39.0" prefWidth="234.0" promptText="Email" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="reg" focusColor="#93858a" labelFloat="true" layoutX="276.0" layoutY="252.0" prefHeight="39.0" prefWidth="234.0" promptText="Région" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="vil" focusColor="#93858a" labelFloat="true" layoutX="697.0" layoutY="41.0" prefHeight="39.0" prefWidth="234.0" promptText="Ville" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="pseudo" focusColor="#93858a" labelFloat="true" layoutX="698.0" layoutY="181.0" prefHeight="39.0" prefWidth="234.0" promptText="Login" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="pass" focusColor="#93858a" labelFloat="true" layoutX="698.0" layoutY="252.0" prefHeight="39.0" prefWidth="234.0" promptText="Mot de passe" unFocusColor="WHITE">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </JFXTextField>
+            <Label fx:id="outputnom" alignment="CENTER" layoutX="86.0" layoutY="166.0" opacity="0.0" prefHeight="17.0" prefWidth="135.0" />
+            <Label fx:id="outputprenom" alignment="CENTER" layoutX="74.0" layoutY="125.0" opacity="0.0" prefHeight="17.0" prefWidth="135.0" />
+            <Label fx:id="outputmail" layoutX="86.0" layoutY="157.0" opacity="0.0" prefHeight="17.0" prefWidth="164.0" />
+            <Label fx:id="outputpseudo" alignment="CENTER" layoutX="283.0" layoutY="419.0" opacity="0.0" prefHeight="17.0" prefWidth="135.0" />
+            <Label fx:id="outputpasswd" alignment="CENTER" layoutX="350.0" layoutY="285.0" opacity="0.0" prefHeight="17.0" prefWidth="135.0" />
+            <ImageView fx:id="imageProfil" fitHeight="150.0" fitWidth="200.0" layoutX="7.0" layoutY="7.0" onMouseClicked="#onclickedPhoto" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Media/avatar.png" />
+               </image>
+               <effect>
+                  <BoxBlur />
+               </effect>
+            </ImageView>
+            <Label fx:id="msgValid" alignment="CENTER" layoutX="182.0" layoutY="326.0" opacity="0.0" prefHeight="27.0" prefWidth="337.0" style="-fx-background-color: white;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="role" focusColor="#93858a" layoutX="697.0" layoutY="109.0" prefHeight="39.0" prefWidth="234.0" promptText="Type Utilisateur" unFocusColor="#fffefe" />
+         </children>
+      </Pane>
+      <JFXButton fx:id="back" layoutX="1.0" layoutY="550.0" onAction="#onclickedBack" prefHeight="25.0" prefWidth="123.0" ripplerFill="#e41717" style="-fx-background-color: #ff9900;" text="Précédent" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="545.0" layoutY="20.0" prefHeight="53.0" prefWidth="337.0" text="Inscription" textAlignment="CENTER" textFill="#ff9900">
+         <font>
+            <Font name="Segoe Print Bold" size="36.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="confInscr" buttonType="RAISED" layoutX="1178.0" layoutY="550.0" onAction="#onclickedConfirmer" prefHeight="25.0" prefWidth="123.0" ripplerFill="#ff9900" style="-fx-background-color: #ff9900;" text="Confirmer" textFill="WHITE">
+         <font>
+            <Font name="System Bold Italic" size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

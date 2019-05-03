@@ -5,7 +5,7 @@
  */
 package Entite;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -17,18 +17,29 @@ public class Publicite
     private String description_publicite;
     private String photo_publicite;
     private int enabled;
-    private Etablissement etablissement;
+    private String titre;
+    private LocalDate dateDebut;
     
+    private Etablissement etablissement;
+    private int nbre_click;
     public Publicite() 
     {
+        etablissement=new Etablissement();
     }
 
-    public Publicite(String description_publicite, String photo_publicite, int enabled, Etablissement etablissement) {
+    public Publicite(String description_publicite, String photo_publicite, int enabled, String titre, LocalDate dateDebut, Etablissement etablissement, int nbre_click) {
         this.description_publicite = description_publicite;
         this.photo_publicite = photo_publicite;
         this.enabled = enabled;
+        this.titre = titre;
+        this.dateDebut = dateDebut;
         this.etablissement = etablissement;
+        this.nbre_click = nbre_click;
     }
+
+   
+
+   
 
     
 
@@ -73,12 +84,43 @@ public class Publicite
     public void setEnabled(int enabled) {
         this.enabled = enabled;
     }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public void setTitre(String titre) {
+        this.titre = titre;
+    }
+
+    public LocalDate getDateDebut() {
+        return dateDebut;
+    }
+
+    public void setDateDebut(LocalDate dateDebut) {
+        this.dateDebut = dateDebut;
+    }
+
+    public int getNbre_click() {
+        return nbre_click;
+    }
+
+    public void setNbre_click(int nbre_click) {
+        this.nbre_click = nbre_click;
+    }
     
+    
+        
 
     @Override
     public String toString() {
-        return description_publicite ;
+        return titre ;
     
     
 }
+//
+//    @Override
+//    public String toString() {
+//        return "Publicite{" + "id_publicite=" + id_publicite + ", description_publicite=" + description_publicite + ", photo_publicite=" + photo_publicite + ", enabled=" + enabled + ", titre=" + titre + ", dateDebut=" + dateDebut + ", etablissement=" + etablissement + ", nbre_click=" + nbre_click + '}';
+//    }
 }

@@ -5,6 +5,7 @@
  */
 package Services;
 
+import Entite.Publicite;
 import com.restfb.DefaultFacebookClient;
 import com.restfb.FacebookClient;
 import com.restfb.types.FacebookType;
@@ -17,11 +18,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
  * @author user
  */
 public class Facebook {
-    public void partager(){
-    
-
+     public void partager(Publicite p){
         
-          String domain="http://esprit.tn/";
+          String domain="https://www.facebook.com/";
           //domain="https://google.fr/";
          String appId="2052658948344519";
          String appSecret="53d959866e6ab42ccae92b3c983a0ac8";
@@ -59,7 +58,6 @@ public class Facebook {
     
             
     }
-    
     
     
     

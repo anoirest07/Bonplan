@@ -15,12 +15,16 @@ public class Commentaire {
     private Experience experience;
     private Utilisateur utilisateur;
 
-    public Commentaire(int id_commentaire, String Commentaire, Experience experience, Utilisateur utilisateur) {
-        this.id_commentaire = id_commentaire;
+    public Commentaire(String Commentaire, Experience experience, Utilisateur utilisateur) {
         this.Commentaire = Commentaire;
         this.experience = experience;
         this.utilisateur = utilisateur;
     }
+
+    
+    
+
+   
 
     public Commentaire() {
     }
@@ -29,28 +33,28 @@ public class Commentaire {
         return id_commentaire;
     }
 
-    public String getCommentaire() {
-        return Commentaire;
-    }
-
-    public Experience getExperience() {
-        return experience;
-    }
-
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
-    }
-
     public void setId_commentaire(int id_commentaire) {
         this.id_commentaire = id_commentaire;
+    }
+
+    public String getCommentaire() {
+        return Commentaire;
     }
 
     public void setCommentaire(String Commentaire) {
         this.Commentaire = Commentaire;
     }
 
+    public Experience getExperience() {
+        return experience;
+    }
+
     public void setExperience(Experience experience) {
         this.experience = experience;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
     public void setUtilisateur(Utilisateur utilisateur) {
@@ -61,6 +65,17 @@ public class Commentaire {
     public String toString() {
         return "Commentaire{" + "id_commentaire=" + id_commentaire + ", Commentaire=" + Commentaire + ", experience=" + experience + ", utilisateur=" + utilisateur + '}';
     }
+
+   
+    
+
+
+    
+
+   
+
+    
+   
 
     
     

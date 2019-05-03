@@ -14,10 +14,15 @@ import java.util.List;
  */
 public interface IServiceCategorie {
     
-    public void ajouterCategorie(Categorie c);
+   public void ajouterCategorie(Categorie c);
+    public void ajouterDemandeCategorie(Categorie c);
     public void modifierCategorie(Categorie c);
     public void supprimerCategorie(Categorie c);
     public Categorie afficherCategorie(int id);
     public List<Categorie> listCategorie();
+//    public void ajouterDemandeCategorie(Categorie c);
+//    public void supprimerDemandeCategorie(Categorie c);
+   public List<Categorie> listDemandesCategorie();
+    public Categorie afficherCategorieParNom(String nom) ;
     
 }

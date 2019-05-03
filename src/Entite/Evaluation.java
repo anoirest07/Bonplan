@@ -11,7 +11,7 @@ package Entite;
  */
 public class Evaluation {
     private Experience experience;
-    private int note;
+    private double note;
     private CriteresEvaluation critere_evaluation;
     
     public Evaluation() {
@@ -27,7 +27,7 @@ public class Evaluation {
         return experience;
     }
 
-    public int getNote() {
+    public double getNote() {
         return note;
     }
 
@@ -39,12 +39,17 @@ public class Evaluation {
         this.experience = experience;
     }
 
-    public void setNote(int note) {
+    public void setNote(double note) {
         this.note = note;
     }
 
     public void setCritere_evaluation(CriteresEvaluation critere_evaluation) {
         this.critere_evaluation = critere_evaluation;
+    }
+
+    @Override
+    public String toString() {
+        return "Evaluation{" + "experience=" + experience + ", note=" + note + ", critere_evaluation=" + critere_evaluation + '}';
     }
 
    

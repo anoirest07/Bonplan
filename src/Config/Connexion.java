@@ -14,7 +14,7 @@ import java.sql.SQLException;
  * @author admin
  */
 public class Connexion {
-    private String url = "jdbc:mysql://127.0.0.1/bonplan";
+    private String url = "jdbc:mysql://localhost:3306/bonplan";
     private String login = "root";
     private  String pwd ="";
 

@@ -16,23 +16,21 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-    /**
+/**
  *
  * @author Yassine
  */
-public class bpFXMain extends Application {
-    
-    @Override
-    public void start(Stage primaryStage) throws IOException {
-                // Parent root =FXMLLoader.load(getClass().getResource("Publicite.fxml"));
-                 //Parent root =FXMLLoader.load(getClass().getResource("ListeDemandePub.fxml"));
-                 Parent root =FXMLLoader.load(getClass().getResource("AccueilClient.fxml"));
-
+public class bpFXMain extends Application { 
+    static int x;
+     @Override
+    public void start(Stage stage) throws Exception {
+        x=9;
+        Parent root = FXMLLoader.load(getClass().getResource("Authentification_1.fxml"));
+        
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("BonPlan");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
@@ -40,6 +38,8 @@ public class bpFXMain extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+       
     }
     
     

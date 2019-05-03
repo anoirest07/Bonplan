@@ -5,6 +5,7 @@
  */
 package Entite;
 
+import Entite.budget;
 import java.util.List;
 
 /**
@@ -12,7 +13,7 @@ import java.util.List;
  * @author admin
  */
 public class Etablissement {
-    private int id_etablissement;
+     private int id_etablissement;
     private String nom_etablissement;
     private String adresse_etablissement;
     private int telephone_etablissement;
@@ -21,12 +22,14 @@ public class Etablissement {
     private String photo_etablissement;
     private String photo_patente;
     private int code_postal;
-    private String position;
-    public enum Budget{Faible,Moyen,Cher};
-    private Budget budget ;
+    //private String position;
+    private budget budget ;
     private String site_web;
+    private int enabled;
     private Categorie categorie;
-  //  private Utilisateur utilisateur;
+    private Utilisateur utilisateur;
+    private Double Long;
+    private Double Lat;
 //    private List<Offre> offres;
 //    private List<Evenement> evenements;
 //    private List<Publicite> publicites;
@@ -34,10 +37,11 @@ public class Etablissement {
     
     
     public Etablissement() {
+        utilisateur=new Utilisateur();
     }
 
-    public Etablissement( String nom_etablissement, String adresse_etablissement, int telephone_etablissement, String horaire_travail, String description_etablissement, String photo_etablissement, String photo_patente, int code_postal, String position, Budget budget, String site_web, Categorie categorie) {
-        
+    public Etablissement(int id_etablissement, String nom_etablissement, String adresse_etablissement, int telephone_etablissement, String horaire_travail, String description_etablissement, String photo_etablissement, String photo_patente, int code_postal, String position, budget budget, String site_web, int enabled, Categorie categorie, Utilisateur utilisateur, Double Long, Double Lat) {
+        this.id_etablissement = id_etablissement;
         this.nom_etablissement = nom_etablissement;
         this.adresse_etablissement = adresse_etablissement;
         this.telephone_etablissement = telephone_etablissement;
@@ -46,11 +50,48 @@ public class Etablissement {
         this.photo_etablissement = photo_etablissement;
         this.photo_patente = photo_patente;
         this.code_postal = code_postal;
-        this.position = position;
+      //  this.position = position;
+        this.budget = budget;
+        this.site_web = site_web;
+        this.enabled = enabled;
+        this.categorie = categorie;
+        this.utilisateur = utilisateur;
+        this.Long = Long;
+        this.Lat = Lat;
+    }
+
+    public Double getLong() {
+        return Long;
+    }
+
+    public void setLong(Double Long) {
+        this.Long = Long;
+    }
+
+    public Double getLat() {
+        return Lat;
+    }
+
+    public void setLat(Double Lat) {
+        this.Lat = Lat;
+    }
+
+    public Etablissement(String nom_etablissement, String adresse_etablissement, int telephone_etablissement, String horaire_travail, String description_etablissement, String photo_etablissement, String photo_patente, int code_postal, String position, budget budget, String site_web, Categorie categorie, Utilisateur utilisateur,int enabled) {
+//        this.id_etablissement = id_etablissement;
+        this.nom_etablissement = nom_etablissement;
+        this.adresse_etablissement = adresse_etablissement;
+        this.telephone_etablissement = telephone_etablissement;
+        this.horaire_travail = horaire_travail;
+        this.description_etablissement = description_etablissement;
+        this.photo_etablissement = photo_etablissement;
+        this.photo_patente = photo_patente;
+        this.code_postal = code_postal;
+     
         this.budget = budget;
         this.site_web = site_web;
         this.categorie = categorie;
-    //    this.utilisateur = utilisateur;
+        this.utilisateur = utilisateur;
+        this.enabled= enabled;
 //        this.offres = offres;
 //        this.evenements = evenements;
 //        this.publicites = publicites;
@@ -96,12 +137,9 @@ public class Etablissement {
         return code_postal;
     }
 
-    public String getPosition() {
-        return position;
-    }
-
-    public String getBudget() {
-        return budget.name();
+   
+    public budget getBudget() {
+        return budget;
     }
 
     public String getSite_web() {
@@ -112,9 +150,13 @@ public class Etablissement {
         return categorie;
     }
 
-  /*  public Utilisateur getUtilisateur() {
+    public Utilisateur getUtilisateur() {
         return utilisateur;
-    }*/
+    }
+
+    public int getEnabled() {
+        return enabled;
+    }
 
     public void setId_etablissement(int id_etablissement) {
         this.id_etablissement = id_etablissement;
@@ -152,11 +194,8 @@ public class Etablissement {
         this.code_postal = code_postal;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public void setBudget(Budget budget) {
+   
+    public void setBudget(budget budget) {
         this.budget = budget;
     }
 
@@ -168,9 +207,13 @@ public class Etablissement {
         this.categorie = categorie;
     }
 
-  /*  public void setUtilisateur(Utilisateur utilisateur) {
+    public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
-    }*/
+    }
+
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
 
 //    public List<Offre> getOffres() {
 //        return offres;
@@ -196,24 +239,21 @@ public class Etablissement {
 //        this.publicites = publicites;
 //    }
 
-//    @Override
-//    public String toString() {
-//        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position=" + position + ", budget=" + budget + ", site_web=" + site_web + ", categorie=" + categorie + "}";
-//    }
-
     @Override
     public String toString() {
-        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position=" + position + ", budget=" + budget + ", site_web=" + site_web + ", categorie=" + categorie + '}';
+        return "Etablissement{" + "id_etablissement=" + id_etablissement + ", nom_etablissement=" + nom_etablissement + ", adresse_etablissement=" + adresse_etablissement + ", telephone_etablissement=" + telephone_etablissement + ", horaire_travail=" + horaire_travail + ", description_etablissement=" + description_etablissement + ", photo_etablissement=" + photo_etablissement + ", photo_patente=" + photo_patente + ", code_postal=" + code_postal + ", position="  + ", budget=" + budget + ", site_web=" + site_web + ", enabled=" + enabled + ", categorie=" + categorie + ", utilisateur=" + utilisateur + '}';
     }
 
    
+   
     
    
 
     
 
+
+    
+    
     
     
 }
-    
-

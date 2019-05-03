@@ -6,6 +6,8 @@
  */
 package Entite;
 
+import java.sql.Date;
+
 /**
  *
  * @author amine
@@ -16,18 +18,20 @@ public class Experience {
     private String preuve;
     private Utilisateur utilisateur ;
     private Etablissement etablissement;
-
+private Date date_exp;
     
     public Experience() {
     }
 
-    public Experience(int id_exp, String description_experience, String preuve, Utilisateur utilisateur, Etablissement etablissement) {
-        this.id_exp = id_exp;
+    public Experience( String description_experience, String preuve, Utilisateur utilisateur, Etablissement etablissement, Date date_exp) {
         this.description_experience = description_experience;
         this.preuve = preuve;
         this.utilisateur = utilisateur;
         this.etablissement = etablissement;
+        this.date_exp = date_exp;
     }
+
+   
 
     public int getId_exp() {
         return id_exp;
@@ -69,10 +73,21 @@ public class Experience {
         this.etablissement = etablissement;
     }
 
+    public Date getDate_exp() {
+        return date_exp;
+    }
+
+    public void setDate_exp(Date date_exp) {
+        this.date_exp = date_exp;
+    }
+
     @Override
     public String toString() {
-        return "Experience{" + "id_exp=" + id_exp + ", description_experience=" + description_experience + ", preuve=" + preuve + ", utilisateur=" + utilisateur + ", etablissement=" + etablissement + '}';
+        return "Experience{" + "id_exp=" + id_exp + ", description_experience=" + description_experience + ", preuve=" + preuve + ", utilisateur=" + utilisateur + ", etablissement=" + etablissement + ", date_exp=" + date_exp + '}';
     }
+
+    
+    
 
     
 }

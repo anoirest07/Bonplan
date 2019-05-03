@@ -20,8 +20,8 @@ public class CriteresEvaluation {
     public CriteresEvaluation() {
     }
 
-    public CriteresEvaluation(int id_critere, String nom_critere_evaluation, Categorie categorie) {
-        this.id_critere = id_critere;
+    public CriteresEvaluation( String nom_critere_evaluation, Categorie categorie) {
+        
         this.nom_critere_evaluation = nom_critere_evaluation;
         this.categorie = categorie;
     }

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="430.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.AjoutAdministrateurController">
+   <children>
+      <AnchorPane layoutX="22.0" layoutY="32.0" prefHeight="378.0" prefWidth="558.0">
+         <children>
+            <Label layoutX="200.0" layoutY="6.0" text="&lt;&lt;Ajouter Administrateur&gt;&gt;" />
+            <Label layoutX="31.0" layoutY="67.0" text="Nom :" />
+            <Label layoutX="24.0" layoutY="101.0" text="Prenom :" />
+            <Label layoutX="33.0" layoutY="135.0" text="Login" />
+            <Label layoutX="10.0" layoutY="173.0" text="mot de passe :" />
+            <TextField fx:id="nom" layoutX="183.0" layoutY="63.0" />
+            <TextField fx:id="prenom" layoutX="183.0" layoutY="97.0" />
+            <TextField fx:id="login" layoutX="183.0" layoutY="131.0" />
+            <TextField fx:id="mdp" layoutX="183.0" layoutY="169.0" />
+            <Button fx:id="valider" layoutX="232.0" layoutY="324.0" mnemonicParsing="false" onAction="#ajouterAdmin" prefHeight="31.0" prefWidth="90.0" text="valider">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button fx:id="acc" layoutX="-4.0" layoutY="-4.0" mnemonicParsing="false" onAction="#onclickedAcc" prefHeight="31.0" prefWidth="90.0" text="Accueil" />
+   </children>
+</AnchorPane>

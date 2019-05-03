@@ -14,8 +14,8 @@ import java.util.List;
  * @author malek
  */
 public interface IServiceProduit {
-     public void ajouterProduit(Produit prod);
-     public void deleteProduit(int id_produit);
+    public void ajouterProduit(Produit prod);
+     public void deleteProduit(Produit p);
      public List<Produit> afficherProduit();
            public Produit chercherProduit(String nom_produit);
              public void modifierProduit(Produit p);

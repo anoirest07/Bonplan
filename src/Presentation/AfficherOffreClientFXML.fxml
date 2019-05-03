@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.AfficherOffreClientFXMLController">
+   <children>
+      <Label layoutX="626.0" layoutY="23.0" text="Liste des Offres" textAlignment="CENTER">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutX="632.0" layoutY="58.0" prefWidth="158.4" />
+
+      <ImageView fx:id="photo2" fitHeight="252.0" fitWidth="283.0" layoutX="641.0" layoutY="126.0" pickOnBounds="true" />
+      <Label layoutX="654.0" layoutY="412.0" text="Description :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_description" layoutX="755.0" layoutY="414.0" />
+      <TableView fx:id="table_offre" layoutX="165.0" layoutY="118.0" onMouseClicked="#afficher" prefHeight="305.0" prefWidth="408.0">
+         <columns>
+            <TableColumn fx:id="titre_offre" prefWidth="179.0" text="Offre" />
+            <TableColumn fx:id="debut_offre" minWidth="0.0" prefWidth="129.0" text="Date Début" />
+            <TableColumn fx:id="fin_offre" prefWidth="94.0" text="Date Fin" />
+         </columns>
+      </TableView>
+      <Label layoutX="977.0" layoutY="118.0" text="Les produits de cette offre :" />
+      <Label fx:id="produitsoff" layoutX="1036.0" layoutY="145.0" />
+   </children>
+</AnchorPane>

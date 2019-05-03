@@ -20,97 +20,105 @@ import java.util.List;
  * @author user
  */
 public class ServiceCategorie implements IServices.IServiceCategorie{
-Connection con ;
+ public  Connection con;
 
     public ServiceCategorie() {
-        con = Connexion.getInstance().getCon();
+       this.con = Connexion.getInstance().getCon();
     }
+
     @Override
     public void ajouterCategorie(Categorie c) {
-          try {
-            Statement state = con.createStatement();
-            state.executeUpdate("INSERT INTO`categorie`(`nom_categorie`) VALUES ('"+c.getNom_categorie()+"');");
-                    
+        String req = "INSERT INTO`categorie`(`nom_categorie`,`enabled`) VALUES ( ?,? ) ";
+
+        try {
+            PreparedStatement st1 = con.prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            st1.setString(1, c.getNom_categorie());
+            st1.setInt(2, 1);
+
+            st1.executeUpdate();
+
+            ResultSet result = st1.getGeneratedKeys();
+            int id = 0;
+            while (result.next()) {
+                id = result.getInt(1);
+                c.setId_categorie(result.getInt(1));
+                System.out.println("id ajout" + id);
+
+            }
         } catch (SQLException ex) {
-             System.out.println(ex.getMessage());
-        
-    } //To change body of generated methods, choose Tools | Templates.
+            System.out.println(ex.getMessage());
+        }
+
     }
 
     @Override
     public void modifierCategorie(Categorie c) {
-        try
-        {
-        String update = "UPDATE categorie SET nom_categorie = ? WHERE id_categorie = ?";
-        PreparedStatement statement2 = con.prepareStatement(update);
-        statement2.setString(1, c.getNom_categorie());
-        statement2.setInt(2, c.getId_categorie());
-        
-        statement2.executeUpdate();
-        System.out.println(""+c.getNom_categorie()+" modifiee !!!");
-        
-        }
-        catch (SQLException e)
-                {
-                    System.out.println(e.getMessage());
-                    System.err.println(""+c.getNom_categorie()+" non modifiee");
-                } //To change body of generated methods, choose Tools | Templates.
+        try {
+            String update = "UPDATE categorie SET nom_categorie = ?, enabled=? WHERE id_categorie = ?";
+            PreparedStatement statement2 = con.prepareStatement(update);
+            statement2.setString(1, c.getNom_categorie());
+            statement2.setInt(2, c.getEnabled());
+
+            statement2.setInt(3, c.getId_categorie());
+
+            statement2.executeUpdate();
+            System.out.println("" + c.getNom_categorie() + " modifiee !!!");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            System.err.println("" + c.getNom_categorie() + " non modifiee");
+        } //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public void supprimerCategorie(Categorie c) {
-        try 
-        {
-        String delete = "DELETE FROM categorie WHERE id_categorie = ?";
-        PreparedStatement st2 = con.prepareStatement(delete);
-        st2.setInt(1,c.getId_categorie());
-        
-        st2.executeUpdate();
-        
-        
-        }
-        catch (SQLException e)
-        {
+        try {
+            String delete = "DELETE FROM categorie WHERE id_categorie = ?";
+            PreparedStatement st2 = con.prepareStatement(delete);
+            st2.setInt(1, c.getId_categorie());
 
-                    System.err.println("SQLException: "+e.getMessage());
-                           } //To change body of generated methods, choose Tools | Templates.
+            st2.executeUpdate();
+
+        } catch (SQLException e) {
+
+            System.err.println("SQLException: " + e.getMessage());
+        } //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
     public List<Categorie> listCategorie() {
-        List<Categorie> lc=new ArrayList<>();
-        try 
-        {
-        String select = "SELECT  * FROM categorie ;"; 
-                 
-        Statement statement1 = con.createStatement();
-        
-        ResultSet result = statement1.executeQuery(select);
-        
-        while (result.next()) 
-        {
-            Categorie c = new Categorie();
-            
-            c.setId_categorie(result.getInt("id_categorie"));
-            c.setNom_categorie(result.getString("nom_categorie"));
-            
-            
-            lc.add(c);
+        List<Categorie> lc = new ArrayList<>();
+        try {
+            String select = "SELECT  * FROM categorie where enabled=1;";
 
-        } 
-    }   
-        catch (SQLException e)
-                {
-                    System.err.println("SQLException: "+e.getMessage());
-                    System.err.println("SQLSTATE: "+e.getSQLState());
-                    System.err.println("VnedorError: "+e.getErrorCode());
-                }
+            Statement statement1 = con.createStatement();
+
+            ResultSet result = statement1.executeQuery(select);
+
+            while (result.next()) {
+                Categorie c = new Categorie();
+
+                c.setId_categorie(result.getInt("id_categorie"));
+                c.setNom_categorie(result.getString("nom_categorie"));
+                c.setEnabled(result.getInt("enabled"));
+
+
+                lc.add(c);
+
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException: " + e.getMessage());
+            System.err.println("SQLSTATE: " + e.getSQLState());
+            System.err.println("VnedorError: " + e.getErrorCode());
+        }
         return lc;
-} //To change body of generated methods, choose Tools | Templates.
-
+    } //To change body of generated methods, choose Tools | Templates.
+ 
     @Override
+    
     public Categorie afficherCategorie(int id) {
-                           Categorie c = new Categorie();
+                    Categorie c = new Categorie();
 
         try 
         {
@@ -123,6 +131,8 @@ Connection con ;
             
             c.setId_categorie(rest.getInt("id_categorie"));
             c.setNom_categorie(rest.getString("nom_categorie"));
+            c.setEnabled(rest.getInt("enabled"));
+
             
         } 
 
@@ -137,8 +147,96 @@ Connection con ;
 
         
     }
-    }//To change body of generated methods, choose Tools | Templates.
     
     
+    
+    @Override
+     public Categorie afficherCategorieParNom(String nom) {
+                    Categorie c = new Categorie();
+
+        try 
+        {
+                   Statement stm = Connexion.getInstance().getCon().createStatement();
+            ResultSet rest= 
+                    stm.executeQuery("select * from `categorie` where nom_categorie='"+nom+"'");
+        
+        while (rest.next()) 
+        {
+            
+            c.setId_categorie(rest.getInt("id_categorie"));
+            c.setNom_categorie(rest.getString("nom_categorie"));
+            c.setEnabled(rest.getInt("enabled"));
+
+            
+        } 
+
+    }   
+        catch (SQLException e)
+                {
+                    System.err.println("SQLException: "+e.getMessage());
+                    System.err.println("SQLSTATE: "+e.getSQLState());
+                    System.err.println("VnedorError: "+e.getErrorCode());
+                }
+        return c;
+
+        
+    }
+ @Override
+    public List<Categorie> listDemandesCategorie() {
+        List<Categorie> lc = new ArrayList<>();
+        try {
+            String select = "SELECT  * FROM categorie where enabled=0 ;";
+
+            Statement statement1 = con.createStatement();
+
+            ResultSet result = statement1.executeQuery(select);
+
+            while (result.next()) {
+                Categorie c = new Categorie();
+
+                c.setId_categorie(result.getInt("id_categorie"));
+                c.setNom_categorie(result.getString("nom_categorie"));
+                c.setEnabled(result.getInt("enabled"));
+
+
+                lc.add(c);
+
+            }
+        } catch (SQLException e) {
+            System.err.println("SQLException: " + e.getMessage());
+            System.err.println("SQLSTATE: " + e.getSQLState());
+            System.err.println("VnedorError: " + e.getErrorCode());
+        }
+        return lc;
+    } //To change body of generated methods, choose Tools | Templates.
+
+    @Override
+    public void ajouterDemandeCategorie(Categorie c) {
+        String req = "INSERT INTO`categorie`(`nom_categorie`,`enabled`) VALUES ( ?,? ) ";
+
+        try {
+            PreparedStatement st1 = con.prepareStatement(req, PreparedStatement.RETURN_GENERATED_KEYS);
+
+            st1.setString(1, c.getNom_categorie());
+            st1.setInt(2, 0);
+
+            st1.executeUpdate();
+
+            ResultSet result = st1.getGeneratedKeys();
+            int id = 0;
+            while (result.next()) {
+                id = result.getInt(1);
+                c.setId_categorie(result.getInt(1));
+                System.out.println("id ajout" + id);
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+
+    
+    }
     
 

@@ -18,6 +18,7 @@ public interface IServiceCritere {
      public void Deletecritere(CriteresEvaluation ce);
     public CriteresEvaluation Findcritere(int id_crit); 
      public List<CriteresEvaluation> listcritereevaluation();
+     public List<CriteresEvaluation> FindCritereEvalByCateg(int id) ;
 
 
 

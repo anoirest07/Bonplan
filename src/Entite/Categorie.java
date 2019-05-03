@@ -14,12 +14,13 @@ import java.util.List;
 public class Categorie {
     private int id_categorie;
     private String nom_categorie;
-    private List<Etablissement> etablissements;
+    private int enabled;
+   // private List<Etablissement> etablissements;
 
-    public Categorie(int id_categorie, String nom_categorie, List<Etablissement> etablissements) {
+    public Categorie(int id_categorie, String nom_categorie, int enabled) {
         this.id_categorie = id_categorie;
         this.nom_categorie = nom_categorie;
-        this.etablissements = etablissements;
+        this.enabled= enabled;
     }
     
     
@@ -45,17 +46,26 @@ public class Categorie {
         this.nom_categorie = nom_categorie;
     }
 
-    public List<Etablissement> getEtablissements() {
-        return etablissements;
+    public int getEnabled() {
+        return enabled;
     }
 
-    public void setEtablissements(List<Etablissement> etablissements) {
-        this.etablissements = etablissements;
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
     }
+    
+//
+//    public List<Etablissement> getEtablissements() {
+//        return etablissements;
+//    }
+//
+//    public void setEtablissements(List<Etablissement> etablissements) {
+//        this.etablissements = etablissements;
+//    }
 
     @Override
     public String toString() {
-        return "Categorie{" + "id_categorie=" + id_categorie + ", nom_categorie=" + nom_categorie + ", etablissements=" + etablissements + '}';
+        return "Categorie{" + "id_categorie=" + id_categorie + ", nom_categorie=" + nom_categorie +  '}';
     }
 
    

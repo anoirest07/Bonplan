@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox fx:id="hbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="155.0" prefWidth="758.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="128.0" prefWidth="118.0">
+         <children>
+            <ImageView fx:id="img" fitHeight="127.0" fitWidth="196.0" pickOnBounds="true" preserveRatio="true" />
+            <Separator orientation="VERTICAL" prefHeight="93.0" prefWidth="0.0" />
+         </children>
+      </HBox>
+      <VBox prefHeight="128.0" prefWidth="195.0">
+         <children>
+            <HBox prefHeight="59.0" prefWidth="195.0">
+               <children>
+                  <HBox prefHeight="28.0" prefWidth="171.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="74.0" text="   nom" />
+                        <Label fx:id="nom" text="nom evenement" />
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+            <VBox prefHeight="16.0" prefWidth="195.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="63.0" prefWidth="195.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="78.0" text="  date " />
+                              <Label fx:id="date" text="date evenement" />
+                           </children>
+                        </HBox>
+                     </children></VBox>
+               </children>
+            </VBox>
+            <HBox prefHeight="31.0" prefWidth="195.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Separator orientation="VERTICAL" prefHeight="200.0" />
+      <VBox prefHeight="128.0" prefWidth="203.0">
+         <children>
+            <VBox prefHeight="47.0" prefWidth="96.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="83.0" text="  description" />
+               </children>
+            </VBox>
+            <VBox prefHeight="132.0" prefWidth="179.0">
+               <children>
+                  <Label fx:id="description" prefHeight="41.0" prefWidth="113.0" text="description" />
+               </children></VBox>
+         </children>
+      </VBox>
+      <Separator orientation="VERTICAL" prefHeight="128.0" prefWidth="0.0" />
+      <VBox prefHeight="128.0" prefWidth="234.0">
+         <children>
+            <HBox prefHeight="99.0" prefWidth="197.0" />
+            <HBox prefHeight="106.0" prefWidth="206.0">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/massage-grau-du-roi.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="nbparticip" prefHeight="17.0" prefWidth="67.0" text="nbparticip" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</HBox>

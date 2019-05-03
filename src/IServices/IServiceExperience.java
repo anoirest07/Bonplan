@@ -14,12 +14,15 @@ import java.util.List;
  */
 public interface IServiceExperience {
     
-    public  List<Experience> afficherexperience ();
+  public  List<Experience> afficherexperience ();
     public void ajouterexperience (Experience e);
     public Experience rechercherexperience (int id ,int id_etablissement);
     public void modifierexperience (Experience e);
     public void supprimerexperience (Experience e);
+ public Experience FindExperience(int id);
 
+    public Experience rechercherexperience(int id_user) ;
+    public List<Experience> afficherexperienceus(int id_user);
 
 
   

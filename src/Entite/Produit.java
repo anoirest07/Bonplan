@@ -30,6 +30,15 @@ public class Produit {
         this.etablissement = etablissement;
     }
 
+    public Produit(String nom_produit, String photo_produit, double prix_produit, Etablissement etablissement) {
+        this.nom_produit = nom_produit;
+        this.photo_produit = photo_produit;
+        this.prix_produit = prix_produit;
+        this.etablissement = etablissement;
+    }
+
+  
+
    
 
     public int getId_produit() {
@@ -71,14 +80,13 @@ public class Produit {
     public void setEtablissement(Etablissement etablissement) {
         this.etablissement = etablissement;
     }
-    
-    
 
     @Override
     public String toString() {
         return "Produit{" + "id_produit=" + id_produit + ", nom_produit=" + nom_produit + ", photo_produit=" + photo_produit + ", prix_produit=" + prix_produit + ", etablissement=" + etablissement + '}';
     }
-    
+
+   
 
     
     

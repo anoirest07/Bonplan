@@ -14,6 +14,7 @@ import java.sql.Date;
 public class Offre 
 {
     private int id_offre;
+    private String titre_offre;
     private String description;
     private Date date_debut;
     private Date date_fin;
@@ -28,8 +29,8 @@ public class Offre
     {
     }
 
-    public Offre(int id_offre, String description, Date date_debut, Date date_fin, String photo, int nombre_like, int nombre_dislike, Etablissement etablissement) {
-        this.id_offre = id_offre;
+    public Offre(String titre_offre, String description, Date date_debut, Date date_fin, String photo, int nombre_like, int nombre_dislike, Etablissement etablissement) {
+        this.titre_offre = titre_offre;
         this.description = description;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
@@ -39,12 +40,38 @@ public class Offre
         this.etablissement = etablissement;
     }
 
+    public Offre(int id_offre, String titre_offre, String description, Date date_debut, Date date_fin, String photo, int nombre_like, int nombre_dislike, Etablissement etablissement) {
+        this.id_offre = id_offre;
+        this.titre_offre = titre_offre;
+        this.description = description;
+        this.date_debut = date_debut;
+        this.date_fin = date_fin;
+        this.photo = photo;
+        this.nombre_like = nombre_like;
+        this.nombre_dislike = nombre_dislike;
+        this.etablissement = etablissement;
+    }
+
+   
+
+    
+   
+    
+    
     public int getId_offre() {
         return id_offre;
     }
 
     public String getDescription() {
         return description;
+    }
+
+    public String getTitre_offre() {
+        return titre_offre;
+    }
+
+    public void setTitre_offre(String titre_offre) {
+        this.titre_offre = titre_offre;
     }
 
     public Date getDate_debut() {
@@ -67,10 +94,7 @@ public class Offre
         return nombre_dislike;
     }
 
-    public Etablissement getEtablissement() {
-        return etablissement;
-    }
-
+    
     public void setId_offre(int id_offre) {
         this.id_offre = id_offre;
     }
@@ -99,14 +123,22 @@ public class Offre
         this.nombre_dislike = nombre_dislike;
     }
 
+    public Etablissement getEtablissement() {
+        return etablissement;
+    }
+
     public void setEtablissement(Etablissement etablissement) {
         this.etablissement = etablissement;
     }
 
     @Override
     public String toString() {
-        return "Offre{" + "id_offre=" + id_offre + ", description=" + description + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", photo=" + photo + ", nombre_like=" + nombre_like + ", nombre_dislike=" + nombre_dislike + ", etablissement=" + etablissement + '}';
+        return "Offre{" + "id_offre=" + id_offre + ", titre_offre=" + titre_offre + ", description=" + description + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", photo=" + photo + ", nombre_like=" + nombre_like + ", nombre_dislike=" + nombre_dislike + ", etablissement=" + etablissement + '}';
     }
+
+  
+    
+
     
     
    

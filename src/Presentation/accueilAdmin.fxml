@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.AccueilAdminController">
+   <children>
+      <ImageView fx:id="backgroud" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" />
+      <Button fx:id="ajout" layoutX="386.0" layoutY="102.0" mnemonicParsing="false" onAction="#OnclickedAjouter" prefHeight="37.0" prefWidth="172.0" text="Ajouter Admin">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="suppr" layoutX="386.0" layoutY="170.0" mnemonicParsing="false" onAction="#OnclickedSupprimer" text="Supprimer Utilisateur">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="listeA" layoutX="386.0" layoutY="241.0" mnemonicParsing="false" onAction="#OnclickedConsulter" prefHeight="25.0" prefWidth="172.0" text="Liste Admin">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="deconn" layoutX="386.0" layoutY="300.0" mnemonicParsing="false" onAction="#onclickedDeocnn" prefHeight="37.0" prefWidth="172.0" text="Deconnexion">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.lynden.gmapsfx.GoogleMapView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.EvenementadminController">
+   <CustomTextField fx:id="recherchee" layoutX="684.0" layoutY="90.0" onKeyReleased="#recherchereven" promptText="chercher.." />
+   <DatePicker fx:id="rechercherdate" layoutX="490.0" layoutY="90.0" onAction="#recherchebydate" />
+   <Button fx:id="supprimereven" layoutX="511.0" layoutY="479.0" mnemonicParsing="false" onAction="#supprimereven" text="supprimer evenement" />
+   <ListView fx:id="tableview" layoutX="95.0" layoutY="151.0" prefHeight="317.0" prefWidth="759.0" />
+   <GoogleMapView fx:id="mapview" layoutX="894.0" layoutY="207.0" prefHeight="253.0" prefWidth="392.0" />
+   <padding>
+      <Insets right="-140.0" />
+   </padding>
+   <opaqueInsets>
+      <Insets right="-140.0" />
+   </opaqueInsets>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--<?import com.jfoenix.controls.JFXButton?>-->
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="565.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ModifierProduitFXMLController">
+    <children>
+              <Label alignment="CENTER" layoutX="14.0" layoutY="313.0" prefHeight="34.0" prefWidth="107.0" text="Photo :">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Label>
+              <ImageView fx:id="picajout" fitHeight="172.0" fitWidth="200.0" layoutX="207.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+                  <image>
+                      <Image url="@icon-camera-128.png" />
+                  </image>
+              </ImageView>
+              <Button fx:id="canoffre" layoutX="429.0" layoutY="477.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="30.0" prefWidth="85.0" text="Cancel" />
+              <Button fx:id="ajoutoffre" layoutX="286.0" layoutY="477.0" mnemonicParsing="false" onAction="#modifier" prefHeight="30.0" prefWidth="85.0" text="OK">
+                  <font>
+                      <Font size="14.0" />
+                  </font>
+              </Button>
+              <JFXButton fx:id="upload_add_offre" layoutX="434.0" layoutY="314.0" onAction="#uploadPic" prefHeight="25.0" prefWidth="161.0" style="-fx-background-color: #eecece;" text="Upload picture">
+                  <graphic>
+                      <ImageView fitHeight="25.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                          <image>
+                              <Image url="@icon-camera-128.png" />
+                          </image>
+                      </ImageView>
+                  </graphic>
+              </JFXButton>
+      <Label layoutX="272.0" layoutY="36.0" text="Modifier un Produit">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="121.0" text="Nom Produit :" />
+             <Label layoutX="35.0" layoutY="183.0" text="Prix" />
+        <TextField fx:id="nommodif" layoutX="219.0" layoutY="117.0" />
+        <TextField fx:id="prixmodif" layoutX="219.0" layoutY="179.0" />
+
+    </children>
+</AnchorPane>

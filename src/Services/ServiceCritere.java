@@ -30,14 +30,25 @@ public class ServiceCritere implements IServices.IServiceCritere{
         this.cnx = Connexion.getInstance().getCon();
     }   
 
-public void ajoutercritere(CriteresEvaluation e)    {
-     try {
- 
-            Statement state = cnx.createStatement();
-            state.executeUpdate("INSERT INTO`critere_evaluation`(`nom_critere_evaluation`,`id_categorie`) VALUES ('"+e.getNom_critere_evaluation()+"',"+e.getCategorie().getId_categorie()+");");
+ @Override
+ public void ajoutercritere(CriteresEvaluation e)    {
+  try {
+     String req=("INSERT INTO`critere_evaluation`(`nom_critere_evaluation`,`id_categorie`) VALUES (?,?)");
 
-            // 
-         } catch (SQLException ex) {
+       PreparedStatement state = Connexion.getInstance().getCon().prepareStatement(req,PreparedStatement.RETURN_GENERATED_KEYS);
+        state.setString(1, e.getNom_critere_evaluation());
+        ServiceCategorie sc= new ServiceCategorie();
+        state.setInt(2, sc.afficherCategorie(e.getCategorie().getId_categorie()).getId_categorie());  
+          state.executeUpdate();
+            ResultSet reset = state.getGeneratedKeys();
+            int id=0;
+            while(reset.next()){
+                id = reset.getInt(1);
+                e.setId_critere(id);
+                System.out.println("Add critere "+id);
+            
+         } 
+  }catch (SQLException ex) {
                System.out.println(ex.getMessage());    
          } 
 }
@@ -101,7 +112,8 @@ public CriteresEvaluation Findcritere(int id_crit)
         {
             ce.setId_critere(result.getInt("id_critere"));
             ce.setNom_critere_evaluation(result.getString("nom_critere_evaluation"));
-            ce.getCategorie().setId_categorie(result.getInt("id_categorie"));
+            ServiceCategorie sc = new ServiceCategorie();
+            ce.setCategorie(sc.afficherCategorie(result.getInt("id_categorie")));
         
         }
         }
@@ -130,8 +142,10 @@ public CriteresEvaluation Findcritere(int id_crit)
         {
             CriteresEvaluation h1 = new CriteresEvaluation();
             h1.setId_critere(result.getInt("id_critere"));
-            h1.setNom_critere_evaluation(result.getString("nom"));
-            h1.getCategorie().setId_categorie(result.getInt("id_categorie"));
+            h1.setNom_critere_evaluation(result.getString("nom_critere_evaluation"));
+               ServiceCategorie sc = new ServiceCategorie();
+            h1.setCategorie(sc.afficherCategorie(result.getInt("id_categorie")));
+           
             ht.add(h1);
 
         } 
@@ -145,6 +159,103 @@ public CriteresEvaluation Findcritere(int id_crit)
         return ht;
 }
 
+ @Override 
+ public List<CriteresEvaluation> FindCritereEvalByCateg(int id) 
+    {
+                List<CriteresEvaluation> ht=new ArrayList<>();
+        try 
+        {
+        String select = "SELECT * FROM critere_evaluation WHERE  id_categorie = '"+id+"' ";
+        Statement statement1 = cnx.createStatement();
+        
+        ResultSet result = statement1.executeQuery(select);
+        
+        while (result.next()) 
+        {
+            CriteresEvaluation h1 = new CriteresEvaluation();
+            h1.setId_critere(result.getInt("id_critere"));
+            h1.setNom_critere_evaluation(result.getString("nom_critere_evaluation"));
+               ServiceCategorie sc = new ServiceCategorie();
+            h1.setCategorie(sc.afficherCategorie(result.getInt("id_categorie")));
+           
+            ht.add(h1);
+
+        } 
+    }   
+        catch (SQLException e)
+                {
+                    System.err.println("SQLException: "+e.getMessage());
+                    System.err.println("SQLSTATE: "+e.getSQLState());
+                    System.err.println("VnedorError: "+e.getErrorCode());
+                }
+        return ht;
+}
+  public List<CriteresEvaluation> Rechcritere(int id_cat) {
+    {
+         List<CriteresEvaluation> ht=new ArrayList<>();
+
+        try
+        {
+        String select = "SELECT * FROM critere_evaluation WHERE  id_categorie = '"+id_cat+"' ";
+        Statement statement1 = cnx.createStatement();
+        ResultSet result = statement1.executeQuery(select);
+       
+        while (result.next()) 
+        {
+            CriteresEvaluation ce= new  CriteresEvaluation();
+
+            ce.setId_critere(result.getInt("id_critere"));
+            ce.setNom_critere_evaluation(result.getString("nom_critere_evaluation"));
+            ServiceCategorie sc = new ServiceCategorie();
+            ce.setCategorie(sc.afficherCategorie(result.getInt("id_categorie")));
+            
+            
+            ht.add(ce);
+
+        }
+        }
+        catch (SQLException e)
+                {
+                    System.err.println("SQLException: "+e.getMessage());
+                    System.err.println("SQLSTATE: "+e.getSQLState());
+                    System.err.println("VnedorError: "+e.getErrorCode());
+                }
+        return ht;
+    }
+}
+  public List<CriteresEvaluation> RechcritereExp(int id_exp) {
+    {
+         List<CriteresEvaluation> ht=new ArrayList<>();
+
+        try
+        {
+        String select = "SELECT * FROM critere_evaluation WHERE  id_exp = '"+id_exp+"' ";
+        Statement statement1 = cnx.createStatement();
+        ResultSet result = statement1.executeQuery(select);
+       
+        while (result.next()) 
+        {
+            CriteresEvaluation ce= new  CriteresEvaluation();
+
+            ce.setId_critere(result.getInt("id_critere"));
+            ce.setNom_critere_evaluation(result.getString("nom_critere_evaluation"));
+            ServiceCategorie sc = new ServiceCategorie();
+            ce.setCategorie(sc.afficherCategorie(result.getInt("id_categorie")));
+           
+            
+            ht.add(ce);
+
+        }
+        }
+        catch (SQLException e)
+                {
+                    System.err.println("SQLException: "+e.getMessage());
+                    System.err.println("SQLSTATE: "+e.getSQLState());
+                    System.err.println("VnedorError: "+e.getErrorCode());
+                }
+        return ht;
+    }
+}
  
 }
 

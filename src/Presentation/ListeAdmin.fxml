@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.ListeAdminController">
+   <children>
+      <Label layoutX="235.0" layoutY="14.0" text="Liste Administrateurs">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="bt" layoutX="522.0" layoutY="34.0" mnemonicParsing="false" onAction="#bt_onClicked" prefHeight="25.0" prefWidth="78.0" text="Load" />
+      <TableView fx:id="table" layoutY="74.0" prefHeight="326.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="id" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+            <TableColumn fx:id="prenom" prefWidth="75.0" text="prenom" />
+            <TableColumn fx:id="email" prefWidth="75.0" text="email" />
+        </columns>
+      </TableView>
+      <Button fx:id="acc" layoutY="34.0" mnemonicParsing="false" onAction="#on_clickedAccueil" prefHeight="25.0" prefWidth="78.0" text="Accueil" />
+   </children>
+</AnchorPane>

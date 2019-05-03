@@ -14,9 +14,11 @@ import java.util.List;
  */
 public interface IServiceOffre 
 {
-    public  List<Offre> afficheroffre ();
+     public  List<Offre> afficheroffre ();
     public Offre rechercheroffre(int id_et);
     public void ajouteroffre (Offre o);
     public void modifieroffre(Offre o);
-    public void supprimeroffre (int id);    
+    public void supprimeroffre (Offre o);    
+        public List<Offre> afficherALLoffres();
+
 }

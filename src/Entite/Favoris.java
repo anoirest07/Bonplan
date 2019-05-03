@@ -17,8 +17,7 @@ public class Favoris {
     public Favoris() {
     }
 
-    public Favoris(int id_favoris, Etablissement etablissement, Utilisateur utilisateur) {
-        this.id_favoris = id_favoris;
+    public Favoris(Etablissement etablissement, Utilisateur utilisateur) {
         this.etablissement = etablissement;
         this.utilisateur = utilisateur;
     }
@@ -27,20 +26,20 @@ public class Favoris {
         return id_favoris;
     }
 
-    public Etablissement getEtablissement() {
-        return etablissement;
-    }
-
-    public Utilisateur getUtilisateur() {
-        return utilisateur;
-    }
-
     public void setId_favoris(int id_favoris) {
         this.id_favoris = id_favoris;
     }
 
+    public Etablissement getEtablissement() {
+        return etablissement;
+    }
+
     public void setEtablissement(Etablissement etablissement) {
         this.etablissement = etablissement;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
     }
 
     public void setUtilisateur(Utilisateur utilisateur) {
@@ -51,6 +50,14 @@ public class Favoris {
     public String toString() {
         return "Favoris{" + "id_favoris=" + id_favoris + ", etablissement=" + etablissement + ", utilisateur=" + utilisateur + '}';
     }
+
+   
+
+   
+
+   
+
+  
     
     
 }

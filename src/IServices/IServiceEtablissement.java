@@ -16,8 +16,11 @@ public interface IServiceEtablissement {
     
     public void ajouterEtablissement(Etablissement e);
     public void modifierEtablissement(Etablissement e);
+    public void accepterEtablissement(Etablissement e);
     public void supprimerEtablissement(Etablissement e);
     public Etablissement chercherEtablissement(int id);
+    public List<Etablissement> chercherEtablissementParNom(String nom);
     public List<Etablissement> listEtablissement();
+    public List<Etablissement> listDemandesEtablissement();
     
 }

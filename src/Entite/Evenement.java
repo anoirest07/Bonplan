@@ -6,6 +6,7 @@
 package Entite;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -14,100 +15,108 @@ import java.sql.Date;
 public class Evenement 
 {
     private int id_evenement;
+    private String description;
+    private LocalDate date_evenement;
+    private String photo;
+    private  Etablissement etab;
     private String nom_evenement;
-    private String description_evenement;
-    private Date date_evenement;
-    private String photo_evenement;
-    private int nbr_participant;
-    private int nbr_interesse;
-    private Etablissement etablissement;
-
+    private  int nombre_participant;
+    private  int nombre_interesse;
     public Evenement() 
     {
+        etab = new Etablissement();
+    }
+    
+
+    public Evenement(String nom , String description, LocalDate date_evenement, String photo)
+    {
+        this.nom_evenement=nom;
+        this.description=description;
+        this.date_evenement=date_evenement;
+        this.photo=photo; 
+        etab = new Etablissement();
     }
 
-    public Evenement(int id_evenement, String nom_evenement, String description_evenement, Date date_evenement, String photo_evenement, int nbr_participant, int nbr_interesse, Etablissement etablissement) {
-        this.id_evenement = id_evenement;
-        this.nom_evenement = nom_evenement;
-        this.description_evenement = description_evenement;
-        this.date_evenement = date_evenement;
-        this.photo_evenement = photo_evenement;
-        this.nbr_participant = nbr_participant;
-        this.nbr_interesse = nbr_interesse;
-        this.etablissement = etablissement;
+    public int getNombre_participant() {
+        return nombre_participant;
     }
+
+    public void setNombre_participant(int nombre_participant) {
+        this.nombre_participant = nombre_participant;
+    }
+
+    public int getNombre_interesse() {
+        return nombre_interesse;
+    }
+
+    public void setNombre_interesse(int nombre_interesse) {
+        this.nombre_interesse = nombre_interesse;
+    }
+
+   
 
     public int getId_evenement() {
         return id_evenement;
-    }
-
-    public String getNom_evenement() {
-        return nom_evenement;
-    }
-
-    public String getDescription_evenement() {
-        return description_evenement;
-    }
-
-    public Date getDate_evenement() {
-        return date_evenement;
-    }
-
-    public String getPhoto_evenement() {
-        return photo_evenement;
-    }
-
-    public int getNbr_participant() {
-        return nbr_participant;
-    }
-
-    public int getNbr_interesse() {
-        return nbr_interesse;
-    }
-
-    public Etablissement getEtablissement() {
-        return etablissement;
     }
 
     public void setId_evenement(int id_evenement) {
         this.id_evenement = id_evenement;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getDate_evenement() {
+        return date_evenement;
+    }
+
+    public void setDate_evenement(LocalDate date_evenement) {
+        this.date_evenement = date_evenement;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public String getNom_evenement() {
+        return nom_evenement;
+    }
+
     public void setNom_evenement(String nom_evenement) {
         this.nom_evenement = nom_evenement;
     }
 
-    public void setDescription_evenement(String description_evenement) {
-        this.description_evenement = description_evenement;
-    }
-
-    public void setDate_evenement(Date date_evenement) {
-        this.date_evenement = date_evenement;
-    }
-
-    public void setPhoto_evenement(String photo_evenement) {
-        this.photo_evenement = photo_evenement;
-    }
-
-    public void setNbr_participant(int nbr_participant) {
-        this.nbr_participant = nbr_participant;
-    }
-
-    public void setNbr_interesse(int nbr_interesse) {
-        this.nbr_interesse = nbr_interesse;
-    }
-
-    public void setEtablissement(Etablissement etablissement) {
-        this.etablissement = etablissement;
-    }
-
-    @Override
-    public String toString() {
-        return "Evenement{" + "id_evenement=" + id_evenement + ", nom_evenement=" + nom_evenement + ", description_evenement=" + description_evenement + ", date_evenement=" + date_evenement + ", photo_evenement=" + photo_evenement + ", nbr_participant=" + nbr_participant + ", nbr_interesse=" + nbr_interesse + ", etablissement=" + etablissement + '}';
-    }
-
     
 
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public Etablissement getEtab() {
+        return etab;
+    }
+
+    public void setEtab(Etablissement etab) {
+        this.etab = etab;
+    }
+
+   @Override
+   public String toString() {
+        return "Evenement{" + "id_evenement=" + id_evenement + ", description=" + description + ", date_evenement=" + date_evenement + ", photo=" + photo + ", etab=" + etab + ", nom=" + nom_evenement + '}';
+    }
+
+
+   
+    
+    
+    
+    
+    
     
     
     

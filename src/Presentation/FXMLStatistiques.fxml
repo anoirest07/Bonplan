@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="stanch" prefHeight="680.0" prefWidth="1375.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.FXMLStatistiquesController">
+   <padding>
+      <Insets right="-140.0" />
+   </padding>
+   <opaqueInsets>
+      <Insets right="-140.0" />
+   </opaqueInsets>
+   <children>
+      <PieChart fx:id="pieChart" layoutX="51.0" layoutY="160.0" prefHeight="360.0" prefWidth="460.0" />
+      <PieChart fx:id="piechart2" layoutX="492.0" layoutY="163.0" prefHeight="360.0" prefWidth="460.0" />
+      <BarChart fx:id="barchart" layoutX="965.0" layoutY="221.0" prefHeight="275.0" prefWidth="396.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <JFXTextField editable="false" layoutX="42.0" layoutY="42.0" prefHeight="50.0" prefWidth="366.0" text="Statistiques sur votre établissement" unFocusColor="#fcfcfc">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton fx:id="pdf" buttonType="RAISED" layoutX="1150.0" layoutY="78.0" onAction="#onload" prefHeight="40.0" prefWidth="186.0" text="Copie format PDF">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

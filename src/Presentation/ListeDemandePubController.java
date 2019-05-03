@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -30,8 +31,6 @@ import javafx.scene.layout.VBox;
 public class ListeDemandePubController  {
 
     @FXML
-    private Button bt_menu;
-    @FXML
     private VBox mainContainer;
     @FXML
     private Button valider;
@@ -41,12 +40,15 @@ public class ListeDemandePubController  {
     private ListView<Publicite> listePublicite;
     @FXML
     private ImageView photo3;
-private ObservableList<Publicite> data ;
+    private ObservableList<Publicite> data ;
 ServicePublicite service = new ServicePublicite();
+    @FXML
+    private Label labelDesc;
+
     /**
      * Initializes the controller class.
      */
-    
+   
     public void initialize() {
          data = FXCollections.observableArrayList();
         List<Publicite> ls = service.listDemandesPublicites();
@@ -57,15 +59,17 @@ ServicePublicite service = new ServicePublicite();
         listePublicite.setItems(data);
         listePublicite.getSelectionModel().selectFirst();
         Publicite e=listePublicite.getSelectionModel().getSelectedItem();
+        labelDesc.setText(e.getDescription_publicite());
+        labelDesc.setMaxWidth(200);
+        labelDesc.setWrapText(true);
         javafx.scene.image.Image image = new javafx.scene.image.Image("http://localhost/image/"+e.getPhoto_publicite());
         photo3.setImage(image);
-       
         // TODO
     }    
 
     @FXML
     private void Edit(ActionEvent event) {
-         Publicite selectedPerson = listePublicite.getSelectionModel().getSelectedItem();
+        Publicite selectedPerson = listePublicite.getSelectionModel().getSelectedItem();
           if ( selectedPerson != null) {
               service.updatepublicite(selectedPerson);
                 initialize();
@@ -84,7 +88,7 @@ ServicePublicite service = new ServicePublicite();
 
     @FXML
     private void Delete(ActionEvent event) {
-          int selectedIndex = listePublicite.getSelectionModel().getSelectedIndex();
+         int selectedIndex = listePublicite.getSelectionModel().getSelectedIndex();
          Publicite selectedPerson = listePublicite.getSelectionModel().getSelectedItem();
          Alert a = new Alert(Alert.AlertType.CONFIRMATION);
          if (selectedIndex >= 0) {
@@ -103,7 +107,8 @@ ServicePublicite service = new ServicePublicite();
 
     @FXML
     private void afficher(MouseEvent event) {
-         Publicite e=listePublicite.getSelectionModel().getSelectedItem();
+          Publicite e=listePublicite.getSelectionModel().getSelectedItem();
+          labelDesc.setText(e.getDescription_publicite());
        // photo2.setViewport(e.getPhoto_publicite());
        //label1.setText(e.getPhoto_publicite());
        // System.out.println(e.getPhoto_publicite());
@@ -115,5 +120,5 @@ ServicePublicite service = new ServicePublicite();
        
     photo3.setImage(image);
     }
-    
-}
+    }
+   

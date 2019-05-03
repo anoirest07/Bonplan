@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Presentation.AjoutExpClientController">
+   <content>
+      <AnchorPane id="AnchorPane" fx:id="anchorpane2" prefHeight="459.0" prefWidth="1281.0">
+         <children>
+            <JFXComboBox fx:id="combo1" layoutX="241.0" layoutY="105.0" prefHeight="25.0" prefWidth="314.0" />
+            <ImageView fx:id="img" fitHeight="116.0" fitWidth="144.0" layoutX="248.0" layoutY="311.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/add-camera.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="98.0" layoutY="118.0" text="Catégorie">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="98.0" layoutY="182.0" text="Etablissement">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="105.0" layoutY="361.0" text="Preuve">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <Label layoutX="100.0" layoutY="263.0" text="Description">
+               <font>
+                  <Font size="14.0" />
+               </font></Label>
+            <JFXTextArea fx:id="desc" layoutX="234.0" layoutY="230.0" prefHeight="42.0" prefWidth="314.0" />
+            <JFXTextField editable="false" layoutX="49.0" layoutY="18.0" prefHeight="50.0" prefWidth="267.0" text="Ajout d'expérience" unFocusColor="#fcfcfc">
+               <font>
+                  <Font name="System Bold Italic" size="21.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton fx:id="btnajout" buttonType="RAISED" layoutX="1067.0" layoutY="390.0" onAction="#ajouter" prefHeight="40.0" prefWidth="194.0" text="Valider l'ajout">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="up" buttonType="RAISED" layoutX="483.0" layoutY="353.0" onAction="#uploadPic" prefHeight="34.0" prefWidth="131.0" text="Ajouter une photo">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="etab" layoutX="241.0" layoutY="168.0" prefHeight="25.0" prefWidth="316.0" />
+            <Rating fx:id="r1" layoutX="988.0" layoutY="110.0" rating="0.0" />
+            <Rating fx:id="r5" layoutX="988.0" layoutY="307.0" rating="0.0" />
+            <Rating fx:id="r4" layoutX="988.0" layoutY="258.0" rating="0.0" />
+            <Rating fx:id="r2" layoutX="988.0" layoutY="158.0" rating="0.0" />
+            <Rating fx:id="r3" layoutX="988.0" layoutY="209.0" rating="0.0" />
+            <Label fx:id="l1" layoutX="871.0" layoutY="229.0" prefHeight="25.0" prefWidth="77.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font></Label>
+            <Label fx:id="l2" layoutX="871.0" layoutY="277.0" prefHeight="25.0" prefWidth="77.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="l3" layoutX="871.0" layoutY="328.0" prefHeight="25.0" prefWidth="77.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="l4" layoutX="871.0" layoutY="377.0" prefHeight="25.0" prefWidth="77.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="l5" layoutX="871.0" layoutY="426.0" prefHeight="25.0" prefWidth="77.0">
+               <font>
+                  <Font name="System Italic" size="13.0" />
+               </font>
+            </Label>
+            <Separator layoutX="831.0" layoutY="116.0" orientation="VERTICAL" prefHeight="228.0" prefWidth="12.0" />
+            <Label layoutX="882.0" layoutY="76.0" prefHeight="19.0" prefWidth="90.0" text="Evaluation" underline="true">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>
